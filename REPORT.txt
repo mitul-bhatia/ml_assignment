@@ -1,0 +1,52 @@
+GemEdge GeM Bid Scraper & Data Structuring Pipeline
+Submission Report (May 22, 2026)
+
+1) Objective
+Build a reproducible pipeline that extracts awarded bids from GeM, drills into result/evaluation data, normalizes it, and produces clean CSV/JSON outputs with summary insights.
+
+2) System Overview (What Was Built)
+- Listing scraper (Playwright, async): Applies Awarded filter, paginates listing cards, captures bid metadata and result URLs.
+- Drilldown scraper: Opens result pages, detects single vs double packet tables, merges technical and financial data, and fetches disqualification reasons via in-page AJAX.
+- Persistence: SQLite for resumability and crash safety.
+- Cleaner/insights: Normalizes vendor names, parses currency, flags anomalies, computes gap metrics, and exports outputs.
+- Optional local dashboard: Zero-dependency HTTP server that serves the generated JSON and a static dashboard.
+
+3) How It Evolved (What Failed and What We Fixed)
+- Checkbox filters initially failed because the site uses custom iCheck overlays. Fixed by direct JS clicks and adding fallbacks to uncheck Ongoing and ensure Awarded.
+- Pagination was fragile on some pages. Expanded the Next button selector set and scroll-into-view before clicking.
+- Result pages had inconsistent layouts (single vs double packet). Added dynamic header-based detection and merging logic.
+- Some result pages redirect or abort (ERR_ABORTED). These are handled as errors without crashing the run.
+
+4) Final Flow (Correct and Working)
+- Navigate to all-bids, apply filters.
+- Scrape listing cards until TARGET_BIDS or MAX_PAGES.
+- Drilldown each pending bid and parse evaluation tables.
+- Run cleaning + insights, export CSV/JSON, update dashboard data.
+
+5) Outputs
+- output/bids_final.csv
+- output/bids_final.json
+- gem_bids.db
+- logs/scraper.log
+- Optional dashboard (served locally)
+
+6) How To Run
+- Install dependencies:
+  pip install -r requirements.txt
+  playwright install chromium
+- Run full pipeline:
+  python pipeline.py
+- Run interactive menu:
+  python run.py
+- Force listing phase (fresh pagination test):
+  python pipeline.py --force-listing
+
+7) Notes and Limitations
+- Some result pages may be restricted or redirect to login, producing empty tables. These are logged and marked without breaking the run.
+- Layout changes on the GeM portal can require selector updates.
+
+8) Submission Checklist
+- Code: scraper_listing.py, scraper_drilldown.py, pipeline.py, cleaner.py, db.py, config.py
+- Outputs: output/bids_final.csv, output/bids_final.json, gem_bids.db
+- Report: REPORT.txt
+- README: Quick start + dashboard screenshot
