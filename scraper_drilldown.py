@@ -352,8 +352,16 @@ async def drilldown_bid(page: Page, bid: dict) -> dict:
             upsert_bid({**bid, "scrape_status": "error", "error_msg": "no_result_page"})
             return bid
 
-        # 2. Parse result tables
-        parsed_data = await parse_bid_result_page(page)
+        # 2. Parse result tables (retry once on transient navigation errors)
+        try:
+            parsed_data = await parse_bid_result_page(page)
+        except Exception as parse_err:
+            if "Execution context was destroyed" in str(parse_err):
+                log.warning(f"Retrying parse for {bid_id} after navigation reset")
+                await page.wait_for_load_state("domcontentloaded", timeout=PAGE_TIMEOUT_MS)
+                parsed_data = await parse_bid_result_page(page)
+            else:
+                raise
 
         bid["winner_name"] = parsed_data.get("winner_name") or bid.get("winner_name") or ""
         bid["winner_price"] = parsed_data.get("winner_price") or bid.get("winner_price") or ""

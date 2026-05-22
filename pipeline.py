@@ -32,7 +32,9 @@ async def main():
     parser.add_argument("--force-listing", action="store_true", help="Force listing scraper to run even if DB has bids")
     parser.add_argument("--drilldown-only", action="store_true", help="Skip listing scrape and only run drilldown on pending bids")
     parser.add_argument("--listing-only", action="store_true", help="Only run listing scraper, skipping drilldown details")
-    parser.add_argument("--headless", type=bool, default=None, help="Override headless mode in config")
+    headless_group = parser.add_mutually_exclusive_group()
+    headless_group.add_argument("--headless", action="store_true", help="Run browser in headless mode")
+    headless_group.add_argument("--headed", action="store_true", help="Run browser with UI (headed mode)")
     args = parser.parse_args()
 
     # Initialize Database
@@ -40,7 +42,12 @@ async def main():
     db.init_db()
 
     # Determine headless mode
-    headless_mode = args.headless if args.headless is not None else HEADLESS
+    if args.headed:
+        headless_mode = False
+    elif args.headless:
+        headless_mode = True
+    else:
+        headless_mode = HEADLESS
     log.info(f"Launching browser (headless={headless_mode}, slow_mo={SLOW_MO_MS}ms)...")
 
     async with async_playwright() as pw:

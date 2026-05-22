@@ -1695,3 +1695,221 @@ Call log:
 2026-05-22 22:24:04,137 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
 2026-05-22 22:24:04,571 [INFO] pipeline: Data cleaning completed successfully.
 2026-05-22 22:24:04,571 [INFO] pipeline: Pipeline execution complete.
+2026-05-23 00:15:47,477 [INFO] pipeline: Initializing database...
+2026-05-23 00:15:47,478 [INFO] db: Database initialized successfully.
+2026-05-23 00:15:47,478 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-23 00:15:48,278 [INFO] pipeline: Currently stored bids in database: 38
+2026-05-23 00:15:48,278 [INFO] pipeline: Starting Listing Scraper phase...
+2026-05-23 00:15:48,278 [INFO] listing: Applying Awarded filter...
+2026-05-23 00:15:52,972 [INFO] listing: Unchecked Ongoing via JS selector=input[id*='ongoing']
+2026-05-23 00:15:52,975 [INFO] listing: Clicked Bid/RA Status via JS selector=#bidrastatus
+2026-05-23 00:15:54,985 [INFO] listing: Clicked Awarded via JS selector=#bid_awarded
+2026-05-23 00:15:59,987 [INFO] listing: Filter applied successfully.
+2026-05-23 00:15:59,988 [INFO] listing: Scraping listing page 1 | collected=0
+2026-05-23 00:16:00,116 [INFO] listing:   → 10 bids on page 1
+2026-05-23 00:16:02,015 [INFO] listing: Scraping listing page 2 | collected=10
+2026-05-23 00:16:02,165 [INFO] listing:   → 10 bids on page 2
+2026-05-23 00:16:04,011 [INFO] listing: Scraping listing page 3 | collected=20
+2026-05-23 00:16:04,132 [INFO] listing:   → 10 bids on page 3
+2026-05-23 00:16:04,139 [INFO] listing: Listing scrape finished. Collected total of 30 bids.
+2026-05-23 00:16:04,139 [INFO] pipeline: Listing Scraper phase finished. Scraped 30 bids on this run.
+2026-05-23 00:16:04,139 [INFO] pipeline: Bids pending detailed extraction: 31
+2026-05-23 00:16:04,139 [INFO] pipeline: Starting Drilldown Scraper phase for 31 bids...
+2026-05-23 00:16:04,139 [INFO] drilldown: [1/31] Drilling GEM/2026/B/7528899
+2026-05-23 00:16:04,139 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7528899
+2026-05-23 00:16:04,139 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317193
+2026-05-23 00:16:06,853 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:16:06,853 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:06,858 [INFO] drilldown:   ✓ GEM/2026/B/7528899 enriched | winner= | bidders=0
+2026-05-23 00:16:07,860 [INFO] drilldown: [2/31] Drilling GEM/2026/B/7497804
+2026-05-23 00:16:07,860 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7497804
+2026-05-23 00:16:07,860 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9282523
+2026-05-23 00:16:10,523 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:10,534 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:10,617 [INFO] drilldown:   ✓ GEM/2026/B/7497804 enriched | winner= | bidders=6
+2026-05-23 00:16:11,618 [INFO] drilldown: [3/31] Drilling GEM/2026/B/7489476
+2026-05-23 00:16:11,618 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7489476
+2026-05-23 00:16:11,618 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9273241
+2026-05-23 00:16:14,369 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:16:14,369 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:14,373 [INFO] drilldown:   ✓ GEM/2026/B/7489476 enriched | winner= | bidders=0
+2026-05-23 00:16:15,374 [INFO] drilldown: [4/31] Drilling GEM/2026/B/7501724
+2026-05-23 00:16:15,374 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7501724
+2026-05-23 00:16:15,374 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9287038
+2026-05-23 00:16:18,065 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:18,076 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:18,132 [INFO] drilldown:   ✓ GEM/2026/B/7501724 enriched | winner= | bidders=4
+2026-05-23 00:16:19,133 [INFO] drilldown: [5/31] Drilling GEM/2026/B/7560808
+2026-05-23 00:16:19,134 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7560808
+2026-05-23 00:16:19,134 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9352405
+2026-05-23 00:16:21,830 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:21,844 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:21,868 [INFO] drilldown:   ✓ GEM/2026/B/7560808 enriched | winner=SHANTI INTERNATIONAL | bidders=1
+2026-05-23 00:16:22,869 [INFO] drilldown: [6/31] Drilling GEM/2026/B/7532265
+2026-05-23 00:16:22,869 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7532265
+2026-05-23 00:16:22,869 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9320803
+2026-05-23 00:16:25,547 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:25,564 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:25,607 [INFO] drilldown:   ✓ GEM/2026/B/7532265 enriched | winner=MAA BHAGWATI TRADERS | bidders=3
+2026-05-23 00:16:26,608 [INFO] drilldown: [7/31] Drilling GEM/2026/B/7527337
+2026-05-23 00:16:26,608 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7527337
+2026-05-23 00:16:26,608 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9315451
+2026-05-23 00:16:29,196 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:16:29,197 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:29,200 [INFO] drilldown:   ✓ GEM/2026/B/7527337 enriched | winner= | bidders=0
+2026-05-23 00:16:30,201 [INFO] drilldown: [8/31] Drilling GEM/2026/B/7527288
+2026-05-23 00:16:30,201 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7527288
+2026-05-23 00:16:30,202 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9315399
+2026-05-23 00:16:32,859 [INFO] drilldown: Parsing page tables... found 2 tables
+2026-05-23 00:16:32,879 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:32,957 [INFO] drilldown:   ✓ GEM/2026/B/7527288 enriched | winner=MAHAVIR MOTOR | bidders=3
+2026-05-23 00:16:33,959 [INFO] drilldown: [9/31] Drilling GEM/2026/B/7489346
+2026-05-23 00:16:33,959 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7489346
+2026-05-23 00:16:33,959 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9273093
+2026-05-23 00:16:36,630 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:36,648 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:36,727 [INFO] drilldown:   ✓ GEM/2026/B/7489346 enriched | winner= | bidders=6
+2026-05-23 00:16:37,728 [INFO] drilldown: [10/31] Drilling GEM/2025/B/6840345
+2026-05-23 00:16:37,729 [INFO] drilldown: Drilling details for bid: GEM/2025/B/6840345
+2026-05-23 00:16:37,729 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/8530374
+2026-05-23 00:16:40,335 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:40,352 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:40,509 [INFO] drilldown:   ✓ GEM/2025/B/6840345 enriched | winner= | bidders=13
+2026-05-23 00:16:41,510 [INFO] drilldown: [11/31] Drilling GEM/2026/B/7558891
+2026-05-23 00:16:41,510 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7558891
+2026-05-23 00:16:41,510 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9350346
+2026-05-23 00:16:44,084 [INFO] drilldown: Parsing page tables... found 2 tables
+2026-05-23 00:16:44,101 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:44,189 [INFO] drilldown:   ✓ GEM/2026/B/7558891 enriched | winner=G.U. ENTERPRISES | bidders=5
+2026-05-23 00:16:45,190 [INFO] drilldown: [12/31] Drilling GEM/2026/B/7480328
+2026-05-23 00:16:45,191 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7480328
+2026-05-23 00:16:45,191 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9263102
+2026-05-23 00:16:47,948 [WARNING] drilldown: Retrying parse for GEM/2026/B/7480328 after navigation reset
+2026-05-23 00:16:47,954 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:16:47,954 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:48,032 [INFO] drilldown:   ✓ GEM/2026/B/7480328 enriched | winner= | bidders=0
+2026-05-23 00:16:49,033 [INFO] drilldown: [13/31] Drilling GEM/2026/B/7399330
+2026-05-23 00:16:49,033 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7399330
+2026-05-23 00:16:49,033 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9172154
+2026-05-23 00:16:51,663 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:16:51,679 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:16:51,716 [INFO] drilldown:   ✓ GEM/2026/B/7399330 enriched | winner= | bidders=2
+2026-05-23 00:16:52,717 [INFO] drilldown: [14/31] Drilling GEM/2026/B/7529759
+2026-05-23 00:16:52,717 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529759
+2026-05-23 00:16:52,718 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9318131
+2026-05-23 00:16:55,332 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:16:55,332 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:55,336 [INFO] drilldown:   ✓ GEM/2026/B/7529759 enriched | winner= | bidders=0
+2026-05-23 00:16:56,338 [INFO] drilldown: [15/31] Drilling GEM/2026/B/7525406
+2026-05-23 00:16:56,338 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7525406
+2026-05-23 00:16:56,338 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9313286
+2026-05-23 00:16:59,021 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:16:59,021 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:16:59,025 [INFO] drilldown:   ✓ GEM/2026/B/7525406 enriched | winner= | bidders=0
+2026-05-23 00:17:00,027 [INFO] drilldown: [16/31] Drilling GEM/2026/B/7383212
+2026-05-23 00:17:00,027 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7383212
+2026-05-23 00:17:00,027 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9153399
+2026-05-23 00:17:02,720 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:17:02,735 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:17:02,848 [INFO] drilldown:   ✓ GEM/2026/B/7383212 enriched | winner= | bidders=9
+2026-05-23 00:17:03,849 [INFO] drilldown: [17/31] Drilling GEM/2026/B/7557312
+2026-05-23 00:17:03,850 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7557312
+2026-05-23 00:17:03,850 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9348604
+2026-05-23 00:17:06,473 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:17:06,489 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:17:06,534 [INFO] drilldown:   ✓ GEM/2026/B/7557312 enriched | winner=ANJALI TRADING AND SOLUTIONS | bidders=3
+2026-05-23 00:17:07,535 [INFO] drilldown: [18/31] Drilling GEM/2026/B/7529546
+2026-05-23 00:17:07,535 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529546
+2026-05-23 00:17:07,535 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317898
+2026-05-23 00:17:10,125 [INFO] drilldown: Parsing page tables... found 2 tables
+2026-05-23 00:17:10,142 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:10,234 [INFO] drilldown:   ✓ GEM/2026/B/7529546 enriched | winner=HI-TECH CORPORATION | bidders=4
+2026-05-23 00:17:11,235 [INFO] drilldown: [19/31] Drilling GEM/2026/B/7529503
+2026-05-23 00:17:11,235 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529503
+2026-05-23 00:17:11,235 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317851
+2026-05-23 00:17:11,665 [WARNING] drilldown: Could not open via direct URL for GEM/2026/B/7529503: Page.goto: net::ERR_ABORTED at https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317851
+Call log:
+  - navigating to "https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317851", waiting until "domcontentloaded"
+
+2026-05-23 00:17:11,665 [INFO] drilldown: Trying candidate URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/GEM%2F2026%2FB%2F7529503
+2026-05-23 00:17:12,061 [INFO] drilldown: Trying candidate URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/GEM%2F2026%2FB%2F7529503
+2026-05-23 00:17:12,268 [WARNING] drilldown: Could not load result page for GEM/2026/B/7529503
+2026-05-23 00:17:13,271 [INFO] drilldown: [20/31] Drilling GEM/2026/B/7529468
+2026-05-23 00:17:13,272 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529468
+2026-05-23 00:17:13,272 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9317813
+2026-05-23 00:17:15,939 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:17:15,949 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:17:15,992 [INFO] drilldown:   ✓ GEM/2026/B/7529468 enriched | winner=ANSH TRADERS | bidders=3
+2026-05-23 00:17:16,993 [INFO] drilldown: [21/31] Drilling GEM/2026/B/7528194
+2026-05-23 00:17:16,993 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7528194
+2026-05-23 00:17:16,993 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9316425
+2026-05-23 00:17:19,823 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:17:19,837 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:17:19,879 [INFO] drilldown:   ✓ GEM/2026/B/7528194 enriched | winner=MS OMKAAR TRADERS | bidders=3
+2026-05-23 00:17:20,880 [INFO] drilldown: [22/31] Drilling GEM/2026/B/7382284
+2026-05-23 00:17:20,881 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7382284
+2026-05-23 00:17:20,881 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9152205
+2026-05-23 00:17:23,601 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:17:23,601 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:23,604 [INFO] drilldown:   ✓ GEM/2026/B/7382284 enriched | winner= | bidders=0
+2026-05-23 00:17:24,605 [INFO] drilldown: [23/31] Drilling GEM/2026/B/7484220
+2026-05-23 00:17:24,605 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7484220
+2026-05-23 00:17:24,605 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9267427
+2026-05-23 00:17:27,306 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:17:27,306 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:27,309 [INFO] drilldown:   ✓ GEM/2026/B/7484220 enriched | winner= | bidders=0
+2026-05-23 00:17:28,311 [INFO] drilldown: [24/31] Drilling GEM/2026/B/7557970
+2026-05-23 00:17:28,311 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7557970
+2026-05-23 00:17:28,311 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9349340
+2026-05-23 00:17:30,980 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:17:30,980 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:30,985 [INFO] drilldown:   ✓ GEM/2026/B/7557970 enriched | winner= | bidders=0
+2026-05-23 00:17:31,986 [INFO] drilldown: [25/31] Drilling GEM/2026/B/7544333
+2026-05-23 00:17:31,987 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7544333
+2026-05-23 00:17:31,987 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9333995
+2026-05-23 00:17:34,787 [INFO] drilldown: Parsing page tables... found 2 tables
+2026-05-23 00:17:34,863 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:34,952 [INFO] drilldown:   ✓ GEM/2026/B/7544333 enriched | winner=METHODEX SYSTEMS PRIVATE LIMITED | bidders=3
+2026-05-23 00:17:35,953 [INFO] drilldown: [26/31] Drilling GEM/2026/B/7529287
+2026-05-23 00:17:35,954 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529287
+2026-05-23 00:17:35,954 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317617
+2026-05-23 00:17:38,584 [INFO] drilldown: Parsing page tables... found 2 tables
+2026-05-23 00:17:38,607 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:38,683 [INFO] drilldown:   ✓ GEM/2026/B/7529287 enriched | winner=KHOSA ENTERPRISES | bidders=3
+2026-05-23 00:17:39,684 [INFO] drilldown: [27/31] Drilling GEM/2026/B/7529136
+2026-05-23 00:17:39,685 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529136
+2026-05-23 00:17:39,685 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317451
+2026-05-23 00:17:42,375 [WARNING] drilldown: Retrying parse for GEM/2026/B/7529136 after navigation reset
+2026-05-23 00:17:42,381 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:17:42,381 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:42,459 [INFO] drilldown:   ✓ GEM/2026/B/7529136 enriched | winner= | bidders=0
+2026-05-23 00:17:43,460 [INFO] drilldown: [28/31] Drilling GEM/2026/B/7529128
+2026-05-23 00:17:43,460 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7529128
+2026-05-23 00:17:43,460 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317442
+2026-05-23 00:17:46,076 [INFO] drilldown: Parsing page tables... found 2 tables
+2026-05-23 00:17:46,106 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:46,182 [INFO] drilldown:   ✓ GEM/2026/B/7529128 enriched | winner=MAA DURGA AGROTECH | bidders=3
+2026-05-23 00:17:47,183 [INFO] drilldown: [29/31] Drilling GEM/2026/B/7524690
+2026-05-23 00:17:47,183 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7524690
+2026-05-23 00:17:47,184 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getSinglePacketResultView/9312444
+2026-05-23 00:17:49,857 [INFO] drilldown: Parsing page tables... found 1 tables
+2026-05-23 00:17:49,873 [INFO] drilldown: Parsing Single-Packet table layout...
+2026-05-23 00:17:50,007 [INFO] drilldown:   ✓ GEM/2026/B/7524690 enriched | winner=INSIGHT SAKET ENTERPRISES | bidders=12
+2026-05-23 00:17:51,008 [INFO] drilldown: [30/31] Drilling GEM/2026/B/7419591
+2026-05-23 00:17:51,008 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7419591
+2026-05-23 00:17:51,008 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9195499
+2026-05-23 00:17:53,893 [WARNING] drilldown: Retrying parse for GEM/2026/B/7419591 after navigation reset
+2026-05-23 00:17:53,900 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:17:53,900 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:53,979 [INFO] drilldown:   ✓ GEM/2026/B/7419591 enriched | winner= | bidders=0
+2026-05-23 00:17:54,979 [INFO] drilldown: [31/31] Drilling GEM/2026/B/7522916
+2026-05-23 00:17:54,980 [INFO] drilldown: Drilling details for bid: GEM/2026/B/7522916
+2026-05-23 00:17:54,980 [INFO] drilldown: Navigating to direct result URL: https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9310340
+2026-05-23 00:17:57,618 [INFO] drilldown: Parsing page tables... found 0 tables
+2026-05-23 00:17:57,619 [INFO] drilldown: Parsing Double-Packet table layouts...
+2026-05-23 00:17:57,623 [INFO] drilldown:   ✓ GEM/2026/B/7522916 enriched | winner= | bidders=0
+2026-05-23 00:17:58,624 [INFO] pipeline: Drilldown Scraper phase finished.
+2026-05-23 00:17:58,624 [INFO] pipeline: Closing browser...
+2026-05-23 00:17:58,660 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-23 00:17:59,125 [INFO] pipeline: Data cleaning completed successfully.
+2026-05-23 00:17:59,125 [INFO] pipeline: Pipeline execution complete.

@@ -117,6 +117,8 @@ python run.py
 - gem_bids.db (SQLite state)
 - logs/scraper.log
 
+Note: Some vendor rows may have empty prices when the portal shows technical-only tables or date-like values in price columns.
+
 ---
 
 ## Files to Submit

@@ -150,6 +150,7 @@ def process_data() -> Dict[str, Any]:
         # Winner Details
         winner_name = normalize_vendor_name(bid_row["winner_name"])
         winner_price = parse_price(bid_row["winner_price"])
+        bid_value_num = parse_price(bid_row["bid_value"])
         
         # Verify L1 vs L2 pricing gap
         l1_price = None
@@ -159,7 +160,9 @@ def process_data() -> Dict[str, Any]:
             v_name_raw = v_row["vendor_name"] or ""
             v_name_norm = normalize_vendor_name(v_name_raw)
             v_rank = v_row["vendor_rank"] or ""
-            v_price = v_row["vendor_price"] or ""
+            v_price_raw = v_row["vendor_price"] or ""
+            v_price_num = parse_price(v_price_raw)
+            v_price = f"{v_price_num:.2f}" if v_price_num > 0 else ""
             v_status = v_row["status_flag"] or "qualified"
             v_remarks = v_row["remarks"] or ""
             
@@ -196,6 +199,19 @@ def process_data() -> Dict[str, Any]:
             })
             
         # ── Winner Price Anomaly Check ──────────────────────────────────────
+        # Improve winner detection if missing
+        if not winner_name:
+            l1_candidates = [pv for pv in processed_vendors if (pv.get("vendor_rank") or "").upper() == "L1"]
+            if l1_candidates:
+                winner_name = l1_candidates[0]["vendor_name"]
+                winner_price = parse_price(l1_candidates[0]["vendor_price"])
+            else:
+                price_candidates = [pv for pv in processed_vendors if pv.get("vendor_price")]
+                if price_candidates:
+                    lowest = min(price_candidates, key=lambda pv: parse_price(pv["vendor_price"]))
+                    winner_name = lowest["vendor_name"]
+                    winner_price = parse_price(lowest["vendor_price"])
+
         # Verify if winner is truly lowest price
         lowest_qualified_price = None
         for pv in processed_vendors:
@@ -228,7 +244,10 @@ def process_data() -> Dict[str, Any]:
             winner_frequencies[winner_name] = winner_frequencies.get(winner_name, 0) + 1
             
         # Bidders Count Check
-        num_bidders = bid_row["num_bidders"] or len(processed_vendors)
+        num_bidders_raw = bid_row["num_bidders"]
+        if pd.isna(num_bidders_raw) or num_bidders_raw is None:
+            num_bidders_raw = len(processed_vendors)
+        num_bidders = int(num_bidders_raw or 0)
         if num_bidders and num_bidders > 3:
             bids_over_3_bidders += 1
             
@@ -239,12 +258,12 @@ def process_data() -> Dict[str, Any]:
             "category": bid_row["category"],
             "buyer": bid_row["buyer"],
             "quantity": bid_row["quantity"],
-            "bid_value": bid_row["bid_value"],
+            "bid_value": f"{bid_value_num:.2f}" if bid_value_num > 0 else "",
             "start_date": bid_row["start_date"],
             "award_date": bid_row["award_date"],
             "bid_url": bid_row["bid_url"],
             "winner_name": winner_name,
-            "winner_price": bid_row["winner_price"],
+            "winner_price": f"{winner_price:.2f}" if winner_price > 0 else "",
             "num_bidders": num_bidders,
             "is_anomaly": is_anomaly,
             "anomaly_remarks": anomaly_remarks,
@@ -260,10 +279,10 @@ def process_data() -> Dict[str, Any]:
                 "category": bid_row["category"],
                 "buyer": bid_row["buyer"],
                 "quantity": bid_row["quantity"],
-                "bid_value": bid_row["bid_value"],
+                "bid_value": f"{bid_value_num:.2f}" if bid_value_num > 0 else "",
                 "award_date": bid_row["award_date"],
                 "winner_name": winner_name,
-                "winner_price": bid_row["winner_price"],
+                "winner_price": f"{winner_price:.2f}" if winner_price > 0 else "",
                 "num_bidders": num_bidders,
                 "vendor_name": "",
                 "vendor_rank": "",
@@ -278,10 +297,10 @@ def process_data() -> Dict[str, Any]:
                     "category": bid_row["category"],
                     "buyer": bid_row["buyer"],
                     "quantity": bid_row["quantity"],
-                    "bid_value": bid_row["bid_value"],
+                    "bid_value": f"{bid_value_num:.2f}" if bid_value_num > 0 else "",
                     "award_date": bid_row["award_date"],
                     "winner_name": winner_name,
-                    "winner_price": bid_row["winner_price"],
+                    "winner_price": f"{winner_price:.2f}" if winner_price > 0 else "",
                     "num_bidders": num_bidders,
                     "vendor_name": pv["vendor_name"],
                     "vendor_rank": pv["vendor_rank"],
