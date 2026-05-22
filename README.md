@@ -8,7 +8,7 @@ Automated Playwright pipeline that scrapes awarded bids from GeM, drills into ev
 
 ## The Story
 
-I started with a simple question: how do I make a scraper that can survive the GeM portal on a bad day? Pages are dynamic, DOM is inconsistent, and results can fail to load. A single-pass script would collapse under real-world behavior, so I built a resumable, staged pipeline instead.
+I started with a simple question: how do I make a scraper that can survive the GeM portal on a bad day? Pages are dynamic, the DOM is inconsistent, and results can fail to load. A single-pass script would collapse under real-world behavior, so I built a resumable, staged pipeline instead.
 
 The process is split into three deliberate phases:
 
