@@ -69,6 +69,46 @@ python pipeline.py
 
 ---
 
+## Submission Write-Up (Project Approach & Challenges)
+
+### The Core Strategy (Why I built it this way)
+I knew right away that scraping a government portal like GeM would be unstable: slow loads, inconsistent DOMs, and occasional network failures. A single-pass script would break and lose progress. To avoid that, I designed a resumable, multi-stage pipeline using Playwright (async) and Python, backed by a local SQLite database. Each stage writes to the DB so if anything crashes, I can restart and continue without duplicating work.
+
+### How the Pipeline Actually Works
+
+Phase 1 — Listing Pass
+- The scraper loads the All Bids page, forces the Awarded filter, and paginates through listing cards.
+- It captures high-level metadata (Bid ID, buyer, category, quantity) and the direct result URL, then stores it in SQLite.
+
+Phase 2 — Drilldown Pass
+- Pending bids are read from SQLite and each result URL is opened.
+- The parser detects Single vs Double Packet layouts by header patterns and merges technical + financial rows by vendor name.
+- Disqualification remarks are fetched via in-page AJAX to `/getReason/{bp_id}`.
+
+Phase 3 — Cleaning & Insights
+- `cleaner.py` normalizes vendor names (e.g., “PVT. LTD.” → “PVT LTD”), parses currency fields, and flags anomalies where winner price exceeds the lowest qualified quote.
+- Clean outputs are exported to CSV/JSON and used by the dashboard.
+
+### The Biggest Headaches (And How I Fixed Them)
+
+Checkbox Trap (Custom UI Overlays)
+- Standard `.click()` failed on Awarded because GeM uses iCheck overlays.
+- Fix: direct JS clicks (`el => el.click()`) and explicit uncheck of Ongoing.
+
+Fragile Pagination
+- “Next” selectors changed or loaded off-screen.
+- Fix: fallback selectors + `scroll_into_view_if_needed()` + network-idle waits.
+
+Inconsistent Table Layouts
+- Some results use a single table; others split technical and financial tables.
+- Fix: header-based detection and merge logic instead of hardcoded indices.
+
+Dead Links & Redirects
+- Some result URLs redirect to login or return `ERR_ABORTED`.
+- Fix: try/except in drilldown; errors are logged and the bid is marked in SQLite.
+
+---
+
 ## Key Files (Why They Matter)
 
 - config.py: selectors, timeouts, run settings.

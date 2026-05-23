@@ -184,22 +184,10 @@ The post-processor audits every completed bid:
 
 ## 7. Live Scraped Data Evidence (Authenticity Proof)
 
-Here is a live sample of actual data extracted directly from the GeM Bid Portal, stored in `gem_bids.db` and output to `output/bids_final.csv`:
+Live examples vary per run because the GeM portal updates frequently and access restrictions can differ by session. For the latest sample data, refer to:
 
-| Bid ID | Category | Winner | Winner Price | Bidder Name | Rank | Bidder Price | Status | Remarks / Reason |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `GEM/2026/B/7529759` | Operation And Maintenance... | VASU ENTERPRISE | ₹53,000.00 | VASU ENTERPRISE | L1 | ₹53,000.00 | qualified | |
-| `GEM/2026/B/7529759` | Operation And Maintenance... | VASU ENTERPRISE | ₹53,000.00 | TECHNOCRAT ELECTRICAL | L2 | ₹89,000.00 | qualified | |
-| `GEM/2026/B/7529759` | Operation And Maintenance... | VASU ENTERPRISE | ₹53,000.00 | SARASWAT ELECTRICALS | L3 | ₹100,000.00 | qualified | |
-| `GEM/2026/B/7525406` | ELECTRODES WELDING... | POOJA ENTERPRISES | ₹65,478.20 | POOJA ENTERPRISES | L1 | ₹65,478.20 | qualified | |
-| `GEM/2026/B/7525406` | ELECTRODES WELDING... | POOJA ENTERPRISES | ₹65,478.20 | AMARAVATI ENTERPRISES | L2 | ₹105,450.00 | qualified | |
-| `GEM/2026/B/7525406` | ELECTRODES WELDING... | POOJA ENTERPRISES | ₹65,478.20 | SINGH TRADERS | L3 | ₹110,377.00 | qualified | |
-| `GEM/2026/B/7524690` | Markers and Highlighters... | INSIGHT SAKET ENTE. | ₹12,020.00 | INSIGHT SAKET ENTE. | L1 | ₹12,020.00 | qualified | |
-| `GEM/2026/B/7524690` | Markers and Highlighters... | INSIGHT SAKET ENTE. | ₹12,020.00 | ASHOKA STATIONERS | L2 | ₹12,190.00 | qualified | |
-| `GEM/2026/B/7524690` | Markers and Highlighters... | INSIGHT SAKET ENTE. | ₹12,020.00 | HINDUSTAN TRADING CO | L3 | ₹12,468.00 | qualified | |
-| `GEM/2026/B/7524690` | Markers and Highlighters... | INSIGHT SAKET ENTE. | ₹12,020.00 | ANAND STATIONERS | L4 | ₹12,908.60 | qualified | |
-| `GEM/2026/B/7382284` | Monthly Cab Hiring... | *None (Technical-only)* | - | RIDHI ENTERPRISES | Qualified | - | qualified | |
-| `GEM/2026/B/7382284` | Monthly Cab Hiring... | *None (Technical-only)* | - | RADIANCE CONNECT LLP | Disqual. | - | disqualified | Failed Experience check |
+- `output/bids_final.csv`
+- `output/bids_final.json`
 
 ---
 
