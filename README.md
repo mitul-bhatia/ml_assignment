@@ -2,6 +2,25 @@
 
 Automated Playwright pipeline that scrapes awarded bids from GeM, drills into evaluation tables, normalizes vendor data, and generates CSV/JSON outputs plus a lightweight dashboard.
 
+
+<p align="center">
+  <a href="https://docs.google.com/document/d/1PSBNOLG8ZhA_xGGz_VgsZYXfQCBmM8HYsoRibdai9FM/edit?tab=t.0" target="_blank">
+    <img 
+      src="https://img.shields.io/badge/View%20Full%20Project%20Report-4285F4?style=for-the-badge&logo=google-docs&logoColor=white" 
+      alt="Project Report"
+    />
+  </a>
+</p>
+
+---
+
+## 📘 Project Report
+
+Want to understand the complete scraping pipeline, architecture decisions, data normalization strategy, and dashboard workflow?
+
+**Click the button above to open the full detailed report.**
+
+---
 ![Dashboard Preview](assets/dashboard.png)
 
 ---
