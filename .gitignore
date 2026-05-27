@@ -1,0 +1,33 @@
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# OS-specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Scraper Logs & DB backups (keeping main DB)
+logs/*.log
+*.db.bak
+*.db.safe_bak
+
+# IDE configs
+.vscode/
+.idea/
+*.swp
+*.swo

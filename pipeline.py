@@ -13,6 +13,8 @@ from config import *
 import db
 from scraper_listing import run_listing_scraper
 from scraper_drilldown import run_drilldown_scraper
+import cleaner
+
 
 # ─── Logging Setup ─────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -120,17 +122,11 @@ async def main():
     # ─── Phase 3: Data Cleaning & Insight Analysis ─────────────────────────────
     log.info("Starting Data Cleaning & Insight Generation phase...")
     try:
-        import subprocess
-        # Run cleaner.py to compile outputs and analysis using the current python executable
-        import sys
-        result = subprocess.run([sys.executable, "cleaner.py"], capture_output=True, text=True)
-        if result.returncode == 0:
-            log.info("Data cleaning completed successfully.")
-            print(result.stdout)
-        else:
-            log.error(f"Cleaner failed: {result.stderr}")
+        cleaner.process_data()
+        log.info("Data cleaning and insight generation completed successfully.")
     except Exception as e:
-        log.exception(f"Failed to run data cleaning script: {e}")
+        log.exception(f"Failed to execute data cleaning process: {e}")
+
 
     log.info("Pipeline execution complete.")
 

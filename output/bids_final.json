@@ -1229,45 +1229,6 @@
     ]
   },
   {
-    "bid_id": "GEM/2026/B/7529503",
-    "ra_number": "",
-    "category": "DUMPING PAD FRONT,RUBBER BUSH UPPER,BRAKE DISC PAD,OIL SEAL STEERING,OIL SEAL,BELT TIMING,WORM SHAF",
-    "buyer": "Ministry of Defence Department of Military Affairs",
-    "quantity": "94",
-    "bid_value": "",
-    "start_date": "12-05-2026 1:11 PM",
-    "award_date": "22-05-2026 2:00 PM",
-    "bid_url": "https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317851",
-    "winner_name": "SWATI ENTERPRISE",
-    "winner_price": "36355.80",
-    "num_bidders": 3,
-    "is_anomaly": false,
-    "anomaly_remarks": "",
-    "vendors": [
-      {
-        "vendor_name": "SWATI ENTERPRISE",
-        "vendor_rank": "L1",
-        "vendor_price": "36355.80",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "NAWBHARAT TRADE AGENCY",
-        "vendor_rank": "L2",
-        "vendor_price": "41026.00",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "NEXUS INDIA",
-        "vendor_rank": "L3",
-        "vendor_price": "41351.00",
-        "status_flag": "qualified",
-        "remarks": ""
-      }
-    ]
-  },
-  {
     "bid_id": "GEM/2026/B/7529468",
     "ra_number": "",
     "category": "STARTER MOTOR,VALVE GRADUATED HAND CONTROL,MASTER CYL KIT,SELF REPAIR KIT,MAGNETIC SWITCH,CLUTCH AS",
@@ -2050,6 +2011,45 @@
         "vendor_name": "MS R.S ASSOCIATE",
         "vendor_rank": "MSE",
         "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      }
+    ]
+  },
+  {
+    "bid_id": "GEM/2026/B/7529503",
+    "ra_number": "",
+    "category": "DUMPING PAD FRONT,RUBBER BUSH UPPER,BRAKE DISC PAD,OIL SEAL STEERING,OIL SEAL,BELT TIMING,WORM SHAF",
+    "buyer": "Ministry of Defence Department of Military Affairs",
+    "quantity": "94",
+    "bid_value": "",
+    "start_date": "12-05-2026 1:11 PM",
+    "award_date": "22-05-2026 2:00 PM",
+    "bid_url": "https://bidplus.gem.gov.in/bidding/bid/getBidResultView/9317851",
+    "winner_name": "SWATI ENTERPRISE",
+    "winner_price": "36355.80",
+    "num_bidders": 0,
+    "is_anomaly": false,
+    "anomaly_remarks": "",
+    "vendors": [
+      {
+        "vendor_name": "SWATI ENTERPRISE",
+        "vendor_rank": "L1",
+        "vendor_price": "36355.80",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "NAWBHARAT TRADE AGENCY",
+        "vendor_rank": "L2",
+        "vendor_price": "41026.00",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "NEXUS INDIA",
+        "vendor_rank": "L3",
+        "vendor_price": "41351.00",
         "status_flag": "qualified",
         "remarks": ""
       }

@@ -223,7 +223,7 @@ def process_data() -> Dict[str, Any]:
         # Apply winner_not_lowest flag
         is_anomaly = False
         anomaly_remarks = ""
-        if winner_price and lowest_qualified_price and winner_price > lowest_qualified_price + 0.01:
+        if winner_price and lostwest_qualified_price and winner_price > lowest_qualified_price + 0.01:
             is_anomaly = True
             anomaly_remarks = f"Winner price {winner_price} is higher than lowest qualified quote {lowest_qualified_price}"
             log.warning(f"Anomaly in {bid_id}: winner price {winner_price} > min {lowest_qualified_price}")
