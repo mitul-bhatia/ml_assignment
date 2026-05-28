@@ -1932,3 +1932,43 @@ Call log:
 2026-05-27 14:33:04,567 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
 2026-05-27 14:33:04,595 [INFO] pipeline: Data cleaning and insight generation completed successfully.
 2026-05-27 14:33:04,595 [INFO] pipeline: Pipeline execution complete.
+2026-05-28 21:38:15,572 [INFO] pipeline: Initializing database...
+2026-05-28 21:38:15,582 [INFO] db: Database initialized successfully.
+2026-05-28 21:38:15,583 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-28 21:38:27,535 [INFO] pipeline: Currently stored bids in database: 39
+2026-05-28 21:38:27,535 [INFO] pipeline: Listing phase skipped (sufficient bids in DB or explicitly skipped).
+2026-05-28 21:38:27,536 [INFO] pipeline: Bids pending detailed extraction: 0
+2026-05-28 21:38:27,536 [INFO] pipeline: No bids pending drilldown details.
+2026-05-28 21:38:27,536 [INFO] pipeline: Closing browser...
+2026-05-28 21:38:27,716 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-28 21:38:27,726 [ERROR] pipeline: Failed to execute data cleaning process: name 'lostwest_qualified_price' is not defined
+Traceback (most recent call last):
+  File "/app/pipeline.py", line 125, in main
+    cleaner.process_data()
+  File "/app/cleaner.py", line 226, in process_data
+    if winner_price and lostwest_qualified_price and winner_price > lowest_qualified_price + 0.01:
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'lostwest_qualified_price' is not defined. Did you mean: 'lowest_qualified_price'?
+2026-05-28 21:38:27,729 [INFO] pipeline: Pipeline execution complete.
+2026-05-28 21:38:43,731 [INFO] pipeline: Initializing database...
+2026-05-28 21:38:43,732 [INFO] db: Database initialized successfully.
+2026-05-28 21:38:43,732 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-28 21:38:44,514 [INFO] pipeline: Currently stored bids in database: 39
+2026-05-28 21:38:44,517 [INFO] pipeline: Listing phase skipped (sufficient bids in DB or explicitly skipped).
+2026-05-28 21:38:44,518 [INFO] pipeline: Bids pending detailed extraction: 0
+2026-05-28 21:38:44,518 [INFO] pipeline: No bids pending drilldown details.
+2026-05-28 21:38:44,518 [INFO] pipeline: Closing browser...
+2026-05-28 21:38:44,582 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-28 21:38:44,707 [INFO] pipeline: Data cleaning and insight generation completed successfully.
+2026-05-28 21:38:44,707 [INFO] pipeline: Pipeline execution complete.
+2026-05-28 21:39:38,882 [INFO] pipeline: Initializing database...
+2026-05-28 21:39:38,884 [INFO] db: Database initialized successfully.
+2026-05-28 21:39:38,884 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-28 21:39:40,379 [INFO] pipeline: Currently stored bids in database: 39
+2026-05-28 21:39:40,379 [INFO] pipeline: Listing phase skipped (sufficient bids in DB or explicitly skipped).
+2026-05-28 21:39:40,380 [INFO] pipeline: Bids pending detailed extraction: 0
+2026-05-28 21:39:40,380 [INFO] pipeline: No bids pending drilldown details.
+2026-05-28 21:39:40,380 [INFO] pipeline: Closing browser...
+2026-05-28 21:39:40,423 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-28 21:39:40,546 [INFO] pipeline: Data cleaning and insight generation completed successfully.
+2026-05-28 21:39:40,546 [INFO] pipeline: Pipeline execution complete.
