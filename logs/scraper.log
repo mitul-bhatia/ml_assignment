@@ -1972,3 +1972,89 @@ NameError: name 'lostwest_qualified_price' is not defined. Did you mean: 'lowest
 2026-05-28 21:39:40,423 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
 2026-05-28 21:39:40,546 [INFO] pipeline: Data cleaning and insight generation completed successfully.
 2026-05-28 21:39:40,546 [INFO] pipeline: Pipeline execution complete.
+2026-05-28 21:53:44,371 [INFO] pipeline: Initializing database...
+2026-05-28 21:53:44,379 [INFO] db: Database initialized successfully.
+2026-05-28 21:53:44,380 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-28 21:53:46,907 [INFO] pipeline: Currently stored bids in database: 39
+2026-05-28 21:53:46,908 [INFO] pipeline: Starting Listing Scraper phase...
+2026-05-28 21:53:46,908 [INFO] listing: Applying Awarded filter...
+2026-05-28 21:53:55,830 [ERROR] pipeline: Pipeline crashed during execution: Page.goto: net::ERR_CONNECTION_REFUSED at https://bidplus.gem.gov.in/all-bids
+Call log:
+  - navigating to "https://bidplus.gem.gov.in/all-bids", waiting until "networkidle"
+Traceback (most recent call last):
+  File "/app/pipeline.py", line 95, in main
+    listed_bids = await run_listing_scraper(page)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_listing.py", line 235, in run_listing_scraper
+    await apply_awarded_filter(page)
+  File "/app/scraper_listing.py", line 27, in apply_awarded_filter
+    await page.goto(BASE_URL, wait_until="networkidle", timeout=PAGE_TIMEOUT_MS)
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 9045, in goto
+    await self._impl_obj.goto(
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_page.py", line 552, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 153, in goto
+    await self._channel.send(
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://bidplus.gem.gov.in/all-bids
+Call log:
+  - navigating to "https://bidplus.gem.gov.in/all-bids", waiting until "networkidle"
+
+2026-05-28 21:53:55,832 [INFO] pipeline: Closing browser...
+2026-05-28 21:53:55,915 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-28 21:53:56,075 [INFO] pipeline: Data cleaning and insight generation completed successfully.
+2026-05-28 21:53:56,075 [INFO] pipeline: Pipeline execution complete.
+2026-05-28 21:54:19,992 [INFO] pipeline: Initializing database...
+2026-05-28 21:54:19,993 [INFO] db: Database initialized successfully.
+2026-05-28 21:54:19,993 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-28 21:54:20,900 [INFO] pipeline: Currently stored bids in database: 39
+2026-05-28 21:54:20,900 [INFO] pipeline: Drilldown-only flag provided. Skipping listing phase.
+2026-05-28 21:54:20,900 [INFO] pipeline: Listing phase skipped (sufficient bids in DB or explicitly skipped).
+2026-05-28 21:54:20,901 [INFO] pipeline: Bids pending detailed extraction: 0
+2026-05-28 21:54:20,902 [INFO] pipeline: No bids pending drilldown details.
+2026-05-28 21:54:20,902 [INFO] pipeline: Closing browser...
+2026-05-28 21:54:20,956 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-28 21:54:21,189 [INFO] pipeline: Data cleaning and insight generation completed successfully.
+2026-05-28 21:54:21,189 [INFO] pipeline: Pipeline execution complete.
+2026-05-28 21:54:49,992 [INFO] pipeline: Initializing database...
+2026-05-28 21:54:49,993 [INFO] db: Database initialized successfully.
+2026-05-28 21:54:49,993 [INFO] pipeline: Launching browser (headless=True, slow_mo=150ms)...
+2026-05-28 21:54:50,762 [INFO] pipeline: Currently stored bids in database: 39
+2026-05-28 21:54:50,762 [INFO] pipeline: Starting Listing Scraper phase...
+2026-05-28 21:54:50,762 [INFO] listing: Applying Awarded filter...
+2026-05-28 21:54:59,169 [ERROR] pipeline: Pipeline crashed during execution: Page.goto: net::ERR_CONNECTION_REFUSED at https://bidplus.gem.gov.in/all-bids
+Call log:
+  - navigating to "https://bidplus.gem.gov.in/all-bids", waiting until "networkidle"
+Traceback (most recent call last):
+  File "/app/pipeline.py", line 95, in main
+    listed_bids = await run_listing_scraper(page)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_listing.py", line 235, in run_listing_scraper
+    await apply_awarded_filter(page)
+  File "/app/scraper_listing.py", line 27, in apply_awarded_filter
+    await page.goto(BASE_URL, wait_until="networkidle", timeout=PAGE_TIMEOUT_MS)
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 9045, in goto
+    await self._impl_obj.goto(
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_page.py", line 552, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 153, in goto
+    await self._channel.send(
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.13/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://bidplus.gem.gov.in/all-bids
+Call log:
+  - navigating to "https://bidplus.gem.gov.in/all-bids", waiting until "networkidle"
+
+2026-05-28 21:54:59,170 [INFO] pipeline: Closing browser...
+2026-05-28 21:54:59,212 [INFO] pipeline: Starting Data Cleaning & Insight Generation phase...
+2026-05-28 21:54:59,339 [INFO] pipeline: Data cleaning and insight generation completed successfully.
+2026-05-28 21:54:59,339 [INFO] pipeline: Pipeline execution complete.
