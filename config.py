@@ -7,6 +7,7 @@ BASE_URL        = "https://bidplus.gem.gov.in/all-bids"
 TARGET_BIDS     = 30        # minimum bids to extract
 MAX_PAGES       = 20        # safety cap on pagination
 PAGE_TIMEOUT_MS = 30_000    # Playwright page timeout
+DRILLDOWN_BID_TIMEOUT_SEC = 60  # max time to parse one bid before skipping
 
 # ── Browser ───────────────────────────────────────────────────────
 HEADLESS        = True     # set True for background run; False for headed debug

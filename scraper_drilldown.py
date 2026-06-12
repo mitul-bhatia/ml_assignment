@@ -8,6 +8,7 @@ import asyncio
 import re
 import json
 import logging
+import time
 from typing import Optional
 from playwright.async_api import Page
 
@@ -135,8 +136,26 @@ async def parse_bid_result_page(page: Page) -> dict:
     Dynamic layouts parser. Detects Single-Packet vs. Double-Packet results,
     extracts qualification statuses/remarks, merges prices, and maps L1 winner details.
     """
+    # Try to expand evaluation sections if they are collapsed.
+    for selector in ["text=/^\\s*2\\.\\s*Evaluation/", "text=Evaluation Details", "text=Evaluation"]:
+        try:
+            locator = page.locator(selector)
+            if await locator.count() > 0:
+                await locator.first.click()
+                await page.wait_for_timeout(1000)
+                break
+        except Exception:
+            continue
+
+    # Poll briefly for tables instead of waiting on a long selector timeout.
     tables = await page.query_selector_all("table")
-    log.info(f"Parsing page tables... found {len(tables)} tables")
+    if not tables:
+        await page.wait_for_timeout(1000)
+        tables = await page.query_selector_all("table")
+    if not tables:
+        log.warning("No tables found on result page")
+    else:
+        log.info(f"Parsing page tables... found {len(tables)} tables")
 
     vendors_dict = {}
     parsed_tables = []
@@ -152,13 +171,23 @@ async def parse_bid_result_page(page: Page) -> dict:
     # Classify tables based on headers
     for table, headers in parsed_tables:
         header_str = " ".join(headers)
-        if "status" in header_str and "rank" in header_str:
+        if ("status" in header_str or "qualification" in header_str) and (
+            "rank" in header_str or "l1" in header_str or "l2" in header_str or "position" in header_str
+        ):
             is_single_packet = True
             financial_table = table
             break
-        elif "status" in header_str:
+        elif "status" in header_str or "qualification" in header_str or "qualified" in header_str:
             technical_table = table
-        elif "rank" in header_str or "price" in header_str or "total price" in header_str:
+        elif (
+            "rank" in header_str
+            or "price" in header_str
+            or "total price" in header_str
+            or "quoted" in header_str
+            or "final" in header_str
+            or "rate" in header_str
+            or "bidder price" in header_str
+        ):
             financial_table = table
 
     if len(tables) == 1 and not is_single_packet:
@@ -172,9 +201,9 @@ async def parse_bid_result_page(page: Page) -> dict:
         rows = await financial_table.query_selector_all("tbody tr")
         
         name_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["seller", "name", "vendor", "bidder"])), 1)
-        price_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["price", "total", "amount"]) and "item" not in h), None)
-        rank_idx = next((i for i, h in enumerate(headers) if "rank" in h), None)
-        status_idx = next((i for i, h in enumerate(headers) if "status" in h), None)
+        price_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["price", "total", "amount", "quoted", "final"]) and "item" not in h), None)
+        rank_idx = next((i for i, h in enumerate(headers) if "rank" in h or "position" in h or "l1" in h), None)
+        status_idx = next((i for i, h in enumerate(headers) if "status" in h or "qualification" in h), None)
 
         for row in rows:
             cells = await row.query_selector_all("td")
@@ -215,7 +244,9 @@ async def parse_bid_result_page(page: Page) -> dict:
             headers = [((await h.inner_text()).strip().lower()) for h in await technical_table.query_selector_all("th")]
             rows = await technical_table.query_selector_all("tbody tr")
             name_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["seller", "name", "vendor", "bidder"])), 1)
-            status_idx = next((i for i, h in enumerate(headers) if "status" in h), 4)
+            status_idx = next((i for i, h in enumerate(headers) if "status" in h or "qualification" in h), None)
+            if status_idx is None:
+                status_idx = 4
 
             for row in rows:
                 cells = await row.query_selector_all("td")
@@ -250,8 +281,8 @@ async def parse_bid_result_page(page: Page) -> dict:
             headers = [((await h.inner_text()).strip().lower()) for h in await financial_table.query_selector_all("th")]
             rows = await financial_table.query_selector_all("tbody tr")
             name_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["seller", "name", "vendor", "bidder"])), 1)
-            price_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["price", "total", "amount"]) and "item" not in h), None)
-            rank_idx = next((i for i, h in enumerate(headers) if "rank" in h), None)
+            price_idx = next((i for i, h in enumerate(headers) if any(k in h for k in ["price", "total", "amount", "quoted", "final", "rate", "bidder price"]) and "item" not in h), None)
+            rank_idx = next((i for i, h in enumerate(headers) if "rank" in h or "position" in h or "l1" in h), None)
 
             for row in rows:
                 cells = await row.query_selector_all("td")
@@ -277,6 +308,21 @@ async def parse_bid_result_page(page: Page) -> dict:
                         "status": "qualified",
                         "remarks": ""
                     }
+
+    # ── Identify winner details ───────────────────────────────────────────
+    # ── Derive rank from price when rank is missing but prices exist ───────
+    if vendors_dict:
+        def parse_price_value(value: str) -> float:
+            try:
+                return float(re.sub(r"[^\d.]", "", value))
+            except Exception:
+                return float("inf")
+
+        priced = [v for v in vendors_dict.values() if v.get("price")]
+        if priced and all(not v.get("rank") for v in priced):
+            priced_sorted = sorted(priced, key=lambda v: parse_price_value(v.get("price") or ""))
+            for idx, v in enumerate(priced_sorted, 1):
+                v["rank"] = f"L{idx}"
 
     # ── Identify winner details ───────────────────────────────────────────
     winner_name = ""
@@ -353,8 +399,18 @@ async def drilldown_bid(page: Page, bid: dict) -> dict:
             return bid
 
         # 2. Parse result tables (retry once on transient navigation errors)
+        parse_started = time.monotonic()
+
+        async def parse_with_retry() -> dict:
+            parsed = await parse_bid_result_page(page)
+            if not parsed.get("vendors"):
+                # Retry once if tables load slowly
+                await page.wait_for_timeout(1500)
+                parsed = await parse_bid_result_page(page)
+            return parsed
+
         try:
-            parsed_data = await parse_bid_result_page(page)
+            parsed_data = await parse_with_retry()
         except Exception as parse_err:
             if "Execution context was destroyed" in str(parse_err):
                 log.warning(f"Retrying parse for {bid_id} after navigation reset")
@@ -362,6 +418,11 @@ async def drilldown_bid(page: Page, bid: dict) -> dict:
                 parsed_data = await parse_bid_result_page(page)
             else:
                 raise
+
+        if time.monotonic() - parse_started > DRILLDOWN_BID_TIMEOUT_SEC and not parsed_data.get("vendors"):
+            log.warning(f"Drilldown timed out after {DRILLDOWN_BID_TIMEOUT_SEC}s for {bid_id}")
+            upsert_bid({**bid, "scrape_status": "error", "error_msg": "drilldown_timeout"})
+            return bid
 
         bid["winner_name"] = parsed_data.get("winner_name") or bid.get("winner_name") or ""
         bid["winner_price"] = parsed_data.get("winner_price") or bid.get("winner_price") or ""
@@ -377,6 +438,13 @@ async def drilldown_bid(page: Page, bid: dict) -> dict:
             insert_vendors(bid_id, vendors)
             bid["raw_eval_json"] = json.dumps(vendors)
             bid["num_bidders"]   = bid.get("num_bidders") or len(vendors)
+
+        if not vendors and not bid.get("winner_price") and not bid.get("winner_name"):
+            bid["scrape_status"] = "error"
+            bid["error_msg"] = "no_tables_or_winner"
+            upsert_bid(bid)
+            log.warning(f"  ! {bid_id} no tables/winner found; marked error for retry")
+            return bid
 
         bid["scrape_status"] = "done"
         upsert_bid(bid)
