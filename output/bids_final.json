@@ -76,13 +76,6 @@
         "remarks": ""
       },
       {
-        "vendor_name": "A1 PRINT & ADVERTISEMENT HOUSE LLP",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
         "vendor_name": "FALCON GENERAL TRADING",
         "vendor_rank": "",
         "vendor_price": "",
@@ -111,6 +104,13 @@
         "remarks": ""
       },
       {
+        "vendor_name": "A1 PRINT & ADVERTISEMENT HOUSE LLP",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
         "vendor_name": "RINKAL TRADERS",
         "vendor_rank": "",
         "vendor_price": "",
@@ -125,14 +125,14 @@
         "remarks": ""
       },
       {
-        "vendor_name": "SHREE SATI PAPER PRIVATE LTD",
+        "vendor_name": "SKY HIGH ENTERPRISES",
         "vendor_rank": "",
         "vendor_price": "",
         "status_flag": "qualified",
         "remarks": ""
       },
       {
-        "vendor_name": "SKY HIGH ENTERPRISES",
+        "vendor_name": "SHREE SATI PAPER PRIVATE LTD",
         "vendor_rank": "",
         "vendor_price": "",
         "status_flag": "qualified",
@@ -1330,154 +1330,7 @@
         "remarks": ""
       },
       {
-        "vendor_name": "SKYWAYS TOURS & TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "SIMRAN TOUR & TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "SHREE SHYAM ENTERPRISES",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "SATNAM TOURIST",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "SATKARTAR TOUR N TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "S R ENTERPRISES",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "RIDHI ENTERPRISES",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "RADIANCE CONNECT LLP",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "PRAYAG TECHNO SOLUTIONS PRIVATE LTD",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "PKR SECURITY SOLUTIONS PRIVATE LTD",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "MADHAV TOUR AND TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "TRX LOGISTICS AND SUPPORT SERVICES PRIVATE LTD",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "KRISHNA TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "KAGDIYAL HOLIDAYS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "JANTA TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "INTERNATIONAL SECURITY & SERVICES AGENCY",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "I.P TRAVEL LINES",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "HIGHWAY MOTORS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "GATIPARIVAHAN PRIVATE LTD",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "DEEP TRAVELS",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "CLASSIC CAR RENTAL SERVICES PRIVATE LTD",
-        "vendor_rank": "",
-        "vendor_price": "",
-        "status_flag": "qualified",
-        "remarks": ""
-      },
-      {
-        "vendor_name": "CAPITAL TOURIST",
+        "vendor_name": "AMBE TRAVELS",
         "vendor_rank": "",
         "vendor_price": "",
         "status_flag": "qualified",
@@ -1491,7 +1344,63 @@
         "remarks": ""
       },
       {
-        "vendor_name": "AMBE TRAVELS",
+        "vendor_name": "CAPITAL TOURIST",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "CLASSIC CAR RENTAL SERVICES PRIVATE LTD",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "DEEP TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "GATIPARIVAHAN PRIVATE LTD",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "HIGHWAY MOTORS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "I.P TRAVEL LINES",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "INTERNATIONAL SECURITY & SERVICES AGENCY",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "JANTA TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "KAGDIYAL HOLIDAYS",
         "vendor_rank": "",
         "vendor_price": "",
         "status_flag": "qualified",
@@ -1499,6 +1408,97 @@
       },
       {
         "vendor_name": "KHATRI TOUR & TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "KRISHNA TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "MADHAV TOUR AND TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "PKR SECURITY SOLUTIONS PRIVATE LTD",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "PRAYAG TECHNO SOLUTIONS PRIVATE LTD",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "RADIANCE CONNECT LLP",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "RIDHI ENTERPRISES",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "S R ENTERPRISES",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "SATKARTAR TOUR N TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "SATNAM TOURIST",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "SHREE SHYAM ENTERPRISES",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "SIMRAN TOUR & TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "SKYWAYS TOURS & TRAVELS",
+        "vendor_rank": "",
+        "vendor_price": "",
+        "status_flag": "qualified",
+        "remarks": ""
+      },
+      {
+        "vendor_name": "TRX LOGISTICS AND SUPPORT SERVICES PRIVATE LTD",
         "vendor_rank": "",
         "vendor_price": "",
         "status_flag": "qualified",

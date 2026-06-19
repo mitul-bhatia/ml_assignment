@@ -23,7 +23,7 @@ CYAN    = "\033[1;36m"
 RESET   = "\033[0m"
 BOLD    = "\033[1m"
 
-VENV_PYTHON = "./venv/bin/python"
+VENV_PYTHON = "./venv/bin/python" if os.path.exists("./venv/bin/python") else sys.executable
 
 class DashboardHandler(http.server.SimpleHTTPRequestHandler):
     """Zero-dependency local server serving dashboard.html and the scraped bids dataset."""
@@ -175,11 +175,7 @@ def reset_database():
 def check_venv():
     """Verify that virtual environment exists and is functional."""
     if not os.path.exists(VENV_PYTHON):
-        print(f"{RED}[x] Python virtual environment not found at {VENV_PYTHON}!{RESET}")
-        print(f"{YELLOW}Please configure the virtual environment and install requirements first:{RESET}")
-        print("  python3 -m venv venv")
-        print("  ./venv/bin/pip install -r requirements.txt")
-        return False
+        print(f"{YELLOW}[!] Virtual environment not found at {VENV_PYTHON}. Assuming dependencies are globally installed.{RESET}")
     return True
 
 def main_menu():
